@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cookoff"
+authors = [
+    {name = "Josiah Carberry", email = "josiah_carberry@brown.edu"},
+]
+description = "Cookoff champs project, but also template for auto testing and linting"
+readme = "readme.md"
+requires-python = ">=3.11"
+keywords = []
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "Django == 4.2.3",
+    "django-stubs == 4.2.3",
+    "black >= 23.7.0",
+    "mypy >= 1.4.1"
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+packages = ["cookoff", "signup"]
+
+[mypy]
+# Exclusions for DJANGO
+exclude = "migrations"
+allow_redefinition = false
+plugins = "mypy_django_plugin.main"
+
+# Disallow dynamic typing
+disallow_any_unimported = true
+# disallow_any_expr = true
+disallow_any_decorated = true
+disallow_any_generics = true
+disallow_any_explicit = true
+disallow_subclassing_any = true
+
+# Disallow untyped definitions and calls
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+
+# None and optional handling
+no_implicit_optional = true
+
+# Configuring warnings
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_redundant_casts = true
+
+# Misc things
+strict_equality = true
+
+# Config file
+warn_unused_configs = true
+
+# [mypy.plugins.django-stubs]
+# django_settings_module = cookoff.settings
+# strict_settings = false
+
+[mypy-migrations]
+follow_imports="skip"
