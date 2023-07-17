@@ -39,6 +39,14 @@ To prevent checking of migrations folders, add `exclude = migrations/` to mypy.i
 ### Hypothesis and pytest
 ### Python critic
 
+### Testing view files
+
+- Using `djlint` to test a `views.py` file
+- Configuration is in the pyproject.toml file
+-- We have chosen to ignore the `H014` code, as `black` is used to enforce linting and that tends to have additional blank lines in files
+- We can also use djlint as a vscode extension during development - not sure how that plays out exactly
+- Run something like `djlint ./templates/**/*.html --profile=django` to lint our HTML template files
+
 ## Key commands
 
 - Run the application in listen mode with `python manage.py runserver`

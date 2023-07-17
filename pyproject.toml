@@ -23,12 +23,17 @@ dependencies = [
     "black >= 23.7.0",
     "mypy >= 1.4.1",
     "hypothesis==6.81.2",
-    "pytest==7.4.0"
+    "pytest==7.4.0",
+    "djlint==1.31.1"
 ]
 dynamic = ["version"]
 
 [tool.setuptools]
 packages = ["cookoff", "signup"]
+
+[tool.djlint]
+ignore="H014"
+use_gitignore=true
 
 [tool.mypy]
 # Exclusions for DJANGO
