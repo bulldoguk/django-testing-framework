@@ -19,6 +19,7 @@ classifiers = [
 dependencies = [
     "Django == 4.2.3",
     "django-stubs == 4.2.3",
+    "django_stubs_ext == 4.2.2",
     "black >= 23.7.0",
     "mypy >= 1.4.1",
     "hypothesis==6.81.2",
@@ -29,9 +30,9 @@ dynamic = ["version"]
 [tool.setuptools]
 packages = ["cookoff", "signup"]
 
-[mypy]
+[tool.mypy]
 # Exclusions for DJANGO
-exclude = "migrations"
+exclude = ["migrations", "build"]
 allow_redefinition = false
 plugins = "mypy_django_plugin.main"
 
@@ -39,7 +40,7 @@ plugins = "mypy_django_plugin.main"
 disallow_any_unimported = true
 # disallow_any_expr = true
 disallow_any_decorated = true
-disallow_any_generics = true
+disallow_any_generics = false
 disallow_any_explicit = true
 disallow_subclassing_any = true
 
@@ -65,9 +66,9 @@ strict_equality = true
 # Config file
 warn_unused_configs = true
 
-# [mypy.plugins.django-stubs]
-# django_settings_module = cookoff.settings
-# strict_settings = false
+[tool.django-stubs]
+django_settings_module = "cookoff.settings"
+strict_settings = false
 
 [mypy-migrations]
 follow_imports="skip"

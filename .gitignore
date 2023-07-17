@@ -3,3 +3,4 @@ __pycache__/
 .hypothesis/
 cookoff.egg-info/
 build/
+.venv/
