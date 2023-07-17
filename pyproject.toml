@@ -20,7 +20,9 @@ dependencies = [
     "Django == 4.2.3",
     "django-stubs == 4.2.3",
     "black >= 23.7.0",
-    "mypy >= 1.4.1"
+    "mypy >= 1.4.1",
+    "hypothesis==6.81.2",
+    "pytest==7.4.0"
 ]
 dynamic = ["version"]
 
