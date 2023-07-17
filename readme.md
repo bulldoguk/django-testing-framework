@@ -7,6 +7,10 @@ To setup a project using Django and HTMX, including typing, testing, linting and
 Python - 3.11.3
 Django - 4.2.3
 
+## Basic install of project
+
+Using `pyproject.toml`, just change to the root folder of the project and use `python -m pip install .`
+
 ## Basic setup
 
 - Confirm that the key Django library is installed with `pip install django --update`
